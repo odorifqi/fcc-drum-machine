@@ -1,4 +1,4 @@
-#how to
+# how to
 
 1. npm init -y
 2. npm i
