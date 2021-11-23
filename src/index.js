@@ -7,28 +7,11 @@ import { PadBank } from "./padBank";
 const reducer = (state, action) => {
   switch (action.type) {
     case "displayClipName":
-      return { ...state, display: action.payload.display };
     case "selectBank":
-      return {
-        ...state,
-        currentPadBank: action.payload.currentPadBank,
-        display: action.payload.display,
-        currentPadBankId: action.payload.currentPadBankId,
-      };
     case "adjustVolume":
-      return {
-        ...state,
-        sliderVal: action.payload.sliderVal,
-        display: action.payload.display,
-      };
     case "powerControl":
-      return {
-        ...state,
-        power: action.payload.power,
-        display: action.payload.display,
-      };
     case "clearDisplay":
-      return { ...state, display: action.payload.display };
+      return { ...state, ...action.payload };
 
     default:
       throw new Error();
@@ -142,7 +125,7 @@ function App() {
 
       <div className="logo">
         <div className="inner-logo ">
-          <i class="fas fa-drum"></i>
+          <i className="fas fa-drum"></i>
           {"DRUM MACHINE" + String.fromCharCode(160)}
         </div>
       </div>
